@@ -1,0 +1,41 @@
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { DashboardPage } from '../pages/DashboardPage';
+
+
+// import { HomePage } from '../pages/HomePage.js';
+// import { CartPage } from '../pages/CartPage.js';
+// import { CommonUtils } from '../utils/CommonUtils.js';
+
+
+test('Login Test', async ({ page }) => {
+
+    //Login test
+    const login = new LoginPage(page);
+
+    await login.gotoLoginPage();
+    await login.login("YMI000050522", "YMI000050522");
+    await page.waitForTimeout(5000)
+    
+
+    // C:\Users\DELL\OneDrive\Desktop\playwrightautomation\tests\test\login.spec.js
+    // C:\Users\DELL\OneDrive\Desktop\playwrightautomation\tests\pages\LoginPage.js
+    //C:\Users\DELL\OneDrive\Desktop\playwrightautomation\tests\pages\LoginPage.js
+ 
+     const dashboardPage=  new DashboardPage(page)
+     
+         await dashboardPage.verifyDashboardPage();
+        // await dashboardPage.addProductToCart("Nexus 6")
+        // await page.waitForTimeout(5000)
+        // await homePage.gotoCart()
+
+
+   //Cart Test
+   
+//    const cart=new CartPage(page)
+//    await page.waitForTimeout(5000)
+//    const status= cart.checkProductInCart("Nexus 6")
+//    expect(await status).toBe(true)
+   
+
+});
